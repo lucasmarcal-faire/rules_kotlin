@@ -38,6 +38,7 @@ def kotlin_repositories(
         compiler_repository_name = _KT_COMPILER_REPO,
         ksp_repository_name = _KSP_COMPILER_PLUGIN_REPO,
         compiler_release = versions.KOTLIN_CURRENT_COMPILER_RELEASE,
+        native_compiler_release = versions.KOTLIN_CURRENT_NATIVE_COMPILER_RELEASE,
         ksp_compiler_release = versions.KSP_CURRENT_COMPILER_PLUGIN_RELEASE):
     """Call this in the WORKSPACE file to setup the Kotlin rules.
 
@@ -54,6 +55,13 @@ def kotlin_repositories(
         urls = [url.format(version = compiler_release.version) for url in compiler_release.url_templates],
         sha256 = compiler_release.sha256,
         compiler_version = compiler_release.version,
+    )
+
+    kotlin_native_compiler_repository(
+        name = native_compiler_release,
+        urls = [url.format(version = native_compiler_release.version) for url in native_compiler_release.url_templates],
+        sha256 = native_compiler_release.sha256,
+        compiler_version = native_compiler_release.version,
     )
 
     ksp_compiler_plugin_repository(
@@ -107,6 +115,15 @@ def kotlinc_version(release, sha256):
         version = release,
         url_templates = [
             "https://github.com/JetBrains/kotlin/releases/download/v{version}/kotlin-compiler-{version}.zip",
+        ],
+        sha256 = sha256,
+    )
+
+def kotlinc_native_version(release, sha256):
+    return version(
+        version = release,
+        url_templates = [
+            "https://github.com/JetBrains/kotlin/releases/download/v{version}/kotlin-native-macos-aarch64-{version}.tar.gz",
         ],
         sha256 = sha256,
     )

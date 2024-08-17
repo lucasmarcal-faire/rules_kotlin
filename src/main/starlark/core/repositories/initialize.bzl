@@ -17,6 +17,7 @@
 load(
     ":initialize.release.bzl",
     _kotlinc_version = "kotlinc_version",
+    _kotlinc_native_version = "kotlinc_native_version",
     _ksp_version = "ksp_version",
     _release_kotlin_repositories = "kotlin_repositories",
 )
@@ -26,6 +27,7 @@ load(":versions.bzl", _versions = "versions")
 # exports
 versions = _versions
 kotlinc_version = _kotlinc_version
+kotlinc_native_version = _kotlinc_native_version
 ksp_version = _ksp_version
 
 def kotlin_repositories(

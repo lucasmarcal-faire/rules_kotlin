@@ -59,11 +59,18 @@ versions = struct(
         sha256 = "01b2e0ef893383a50dbeb13970fe7fa3be36ca3e83259e01649945b09d736985",
     ),
     KOTLIN_CURRENT_COMPILER_RELEASE = version(
-        version = "1.9.23",
+        version = "1.9.25",
         url_templates = [
             "https://github.com/JetBrains/kotlin/releases/download/v{version}/kotlin-compiler-{version}.zip",
         ],
-        sha256 = "93137d3aab9afa9b27cb06a824c2324195c6b6f6179d8a8653f440f5bd58be88",
+        sha256 = "6ab72d6144e71cbbc380b770c2ad380972548c63ab6ed4c79f11c88f2967332e",
+    ),
+    KOTLIN_NATIVE_COMPILER_RELEASE = version(
+        version = "1.9.25",
+        url_templates = [
+            "https://github.com/JetBrains/kotlin/releases/download/v{version}/kotlin-native-macos-aarch64-{version}.tar.gz",
+        ],
+        sha256 = "c384c6d21787e3bfad6dfc4c53f5e0821e9a8e02931a158394595a632788113f",
     ),
     KSP_CURRENT_COMPILER_PLUGIN_RELEASE = version(
         version = "1.9.23-1.0.20",
